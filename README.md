@@ -1,3 +1,4 @@
+HEAD
 # GRANTLY — Your Potential Deserves Funding.
 ### A Premium, Aesthetic, AI-Powered Scholarship Discovery & Student Funding Ecosystem
 
@@ -253,3 +254,6 @@ hackthon/
 - **Event**: *THE OUTPOST Hackathon (2026)*
 
 > *"GRANTLY is an independently developed student-focused project created by Krupa Rathod, designed to make educational financial assistance easier to discover, understand and manage."*
+
+# GRANTLY
+ 298cab6df67f243b96c16cc52996b6aa5ef8ef3c
