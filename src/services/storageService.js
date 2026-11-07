@@ -11,6 +11,7 @@ const STORAGE_KEYS = {
   DOCUMENTS: 'grantly_documents',
   SAVED_VIDEOS: 'grantly_saved_videos',
   ONBOARDED: 'grantly_is_onboarded',
+  AUTH: 'grantly_is_authenticated',
 };
 
 export const getStorageItem = (key, fallback) => {

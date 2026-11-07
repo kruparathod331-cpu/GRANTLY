@@ -23,7 +23,7 @@ import { SCHOLARSHIPS_DATA } from '../data/scholarships';
 import ScholarshipCard from '../components/ScholarshipCard';
 
 export default function Landing() {
-  const { profile } = useStudent();
+  const { profile, openAuthModal } = useStudent();
   const featuredScholarships = SCHOLARSHIPS_DATA.filter(s => s.featured).slice(0, 3);
 
   const steps = [
@@ -106,6 +106,14 @@ export default function Landing() {
             >
               <span>Explore GRANTLY</span>
             </Link>
+
+            <button
+              onClick={() => openAuthModal('login')}
+              className="px-5 py-3.5 rounded-2xl text-sm font-extrabold border border-theme bg-theme-card text-theme-main hover:border-theme-primary hover:bg-theme-secondary flex items-center justify-center gap-1.5 transition-all shadow-xs"
+            >
+              <User className="w-4 h-4 text-theme-primary" />
+              <span>Student Log In / Sign In</span>
+            </button>
           </div>
 
           {/* Micro social proof / metrics */}

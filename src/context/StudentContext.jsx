@@ -183,6 +183,40 @@ export const StudentProvider = ({ children }) => {
     return getStorageItem(STORAGE_KEYS.SAVED_VIDEOS, ['vid-01', 'vid-04']);
   });
 
+  // 6. Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return getStorageItem(STORAGE_KEYS.AUTH, true);
+  });
+
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authModalTab, setAuthModalTab] = useState('login'); // 'login' or 'signin'
+
+  const openAuthModal = (tab = 'login') => {
+    setAuthModalTab(tab);
+    setAuthModalOpen(true);
+  };
+
+  const closeAuthModal = () => {
+    setAuthModalOpen(false);
+  };
+
+  const loginUser = (customData = {}) => {
+    setIsAuthenticated(true);
+    if (customData.name) {
+      setProfile(prev => ({
+        ...prev,
+        ...customData,
+        isOnboarded: true,
+      }));
+    }
+    setStorageItem(STORAGE_KEYS.AUTH, true);
+  };
+
+  const logoutUser = () => {
+    setIsAuthenticated(false);
+    setStorageItem(STORAGE_KEYS.AUTH, false);
+  };
+
   // Persist whenever state changes
   useEffect(() => {
     setStorageItem(STORAGE_KEYS.PROFILE, profile);
@@ -361,6 +395,13 @@ export const StudentProvider = ({ children }) => {
         isVideoSaved,
         readinessScore,
         resetAllData,
+        isAuthenticated,
+        authModalOpen,
+        authModalTab,
+        openAuthModal,
+        closeAuthModal,
+        loginUser,
+        logoutUser,
       }}
     >
       {children}
